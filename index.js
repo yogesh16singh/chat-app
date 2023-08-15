@@ -1,12 +1,11 @@
 const express = require("express");
 const app = express();
-
+const port = process.env.PORT || 8081
 app.get("/", (req, res) => {
-    res.status(200).json({
-        msg: "hello"
-    })
+    // console.log(__dirname);
+    res.sendFile(__dirname + "/index.html")
 })
 
-app.listen(8081, () => {
+app.listen(port, () => {
     console.log("server is running");
-})
+});
