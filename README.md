@@ -1,5 +1,6 @@
 # chat-app
-RealTime Chat Application using Sockets
+RealTime Chat Application using Sockets 
+
 # impovements
 Broadcast a message to connected users when someone connects or disconnects.
 Add support for nicknames.
