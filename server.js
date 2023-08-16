@@ -16,15 +16,13 @@ io.on('connection', (socket) => {
     console.log("user connected");
     socket.on('disconnect', () => {
         console.log("user disconnected");
-    })
+    });
+    socket.on('chat message', (msg) => {
+        console.log("msg", msg);
+        io.emit('chat message', msg);
+    });
 });
-// io.on("connection", (socket) => {
-//     const transport = socket.conn.transport.name; // in most cases, "polling"
-//     console.log(transport);
-//     socket.conn.on("upgrade", () => {
-//         const upgradedTransport = socket.conn.transport.name; // in most cases, "websocket"
-//     });
-// });
+
 
 // app.listen(port, () => {
 //     console.log("server is running");
