@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+        form #input {
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Chat Application</h1>
+    <ul id="messages">
+        <li>hlo</li>
+    </ul>
+    <form>
+        <input type="text" id="input"></input>
+        <input type="submit"></input>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"
+        integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var socket = io();
+        socket.on("connect", () => {
+            const transport = socket.io.engine.transport.name; // in most cases, "polling"
+
+            socket.io.engine.on("upgrade", () => {
+                const upgradedTransport = socket.io.engine.transport.name; // in most cases, "websocket"
+            });
+        });
+    </script>
+</body>
+
+</html>
